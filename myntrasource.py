@@ -88,5 +88,5 @@ for div in xyz:
     print(dic)
 
 json_text = json.dumps(diclist,indent=4)
-with open('myntrajson5.json', 'w') as json_file:
+with open('myntrajson2.json', 'w') as json_file:
     json_file.write(json_text)
