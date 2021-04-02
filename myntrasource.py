@@ -78,8 +78,10 @@ for div in xyz:
     # print(price)
     pricediscounted = [x.text for x in div.select('.price-discounted')]
     # print(pricediscounted)
+    producttype = [x.text for x in div.select('.name-product')]
 
-    dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted}
+
+    dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted,'producttype':producttype}
     
     
     diclist.append(dic)
