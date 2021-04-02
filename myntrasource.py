@@ -1,14 +1,13 @@
 # https://www.myntra.com/amp/women-ethnic-wear
 import requests
 import random
-import re
 import json
 from bs4 import BeautifulSoup as soup
 from requests_html import HTMLSession
 import urllib
 import http.cookiejar, urllib.request as urllib2
-import csv
-import pandas
+
+
 
 # site = 'https://www.myntra.com/amp/women-ethnic-wear'
 site = 'https://www.myntra.com/amp/women-ethnic-wear?row-50&p=2'
@@ -70,25 +69,18 @@ print(type(xyz))
 print(y)
 diclist = []
 dic={}
-maindiv = page_soup.find_all('.product')
 
-for div in pqr:
+
+for div in xyz:
     productname = [x.text for x in div.select('.name')]
     # print(productname)
     price = [x.text for x in div.select('.price')]
     # print(price)
     pricediscounted = [x.text for x in div.select('.price-discounted')]
     # print(pricediscounted)
-    # productlink = [x.attrs['href'] for x in div.select('')]
-    # print(productlink)
-    imagelink = [x.attrs['src'] for x in div.select('img')]
-    # print(imagelink)
-    # imagelink= div.findAll("img",{"class":"i-amphtml-element"})
 
-
-    # dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted}
-    dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted,'imagelink':imagelink}
-    # dic = {'productname':productname,'price':price,'pricedicounted':pricediscounted,'prodctlink':productlink,'imagelink':imagelink,}
+    dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted}
+    
     
     diclist.append(dic)
     print(dic)
