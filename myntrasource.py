@@ -79,14 +79,25 @@ for div in xyz:
     pricediscounted = [x.text for x in div.select('.price-discounted')]
     # print(pricediscounted)
     producttype = [x.text for x in div.select('.name-product')]
+    # print(producttype)
+    imagelink = [x.attrs['src'] for x in div.select('amp-img')]
+    # print(imagelink)
+       
+    for ac in pqr:
+        product_link = str(ac.a["href"])
+        myntra_homepage = "https://www.myntra.com"
+        product_link = myntra_homepage + product_link
+              
+       # imagelink = ac.findAll("amp-img")[0].get('src')  #it also works 
 
 
-    dic = {'productname':productname,'price':price,'pricediscounted':pricediscounted,'producttype':producttype}
+    
+    dic = {'productname':productname,'price':price,'pricedicounted':pricediscounted,'producttype':producttype,'product_link':product_link,'imagelink':imagelink,}
     
     
     diclist.append(dic)
     print(dic)
 
 json_text = json.dumps(diclist,indent=4)
-with open('myntrajson2.json', 'w') as json_file:
+with open('myntra.json', 'w') as json_file:
     json_file.write(json_text)
